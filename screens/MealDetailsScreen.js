@@ -9,10 +9,18 @@ import CustomHeaderButton from "../components/HeaderButton";
 const MealDetailsScreen = (props) => {
   const mealId = props.navigation.getParam("mealId");
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
   return (
     <View style={styles.screen}>
-      <Text>{selectedMeal.title}</Text>
       <View>
+        <View>
+          <Text>INGREDIENTS</Text>
+          <View style={styles.ingredients}>
+            {selectedMeal.ingredients.map((ingredient) => (
+              <Text key={ingredient}>{ingredient}</Text>
+            ))}
+          </View>
+        </View>
         <Button
           title={"Back to Categories"}
           onPress={() => {
@@ -44,6 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  ingredients: {},
 });
 
 export default MealDetailsScreen;
