@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Platform } from "react-native";
 import { HeaderButton } from "react-navigation-header-buttons";
 import { Ionicons } from "@expo/vector-icons";
+import Colors from "../constants/Colors";
 
 const CustomHeaderButton = (props) => {
   const [changeButton, setChangeButton] = useState("ios-star-outline");
@@ -24,10 +25,9 @@ const CustomHeaderButton = (props) => {
       IconComponent={Ionicons}
       iconSize={23}
       iconName={changeButton}
-      color="white"
+      color={Colors.tabs}
       onPress={() => {
         buttonChangeMethod();
-        console.log("change state pls");
       }}
     />
   );
